@@ -44,6 +44,14 @@ class GildedRoseTest {
         assertEquals(9, app.items[0].sellIn);
     }
 
+    @Test
+    public void agedBrieQualityIncreasesCorrectlyWhenBelow50() {
+        Item[] items = new Item[] { new Item("Aged Brie", 2, 49) };
+        GildedRose app = new GildedRose(items);
+        app.updateQuality();
+        assertEquals(50, items[0].quality);
+    }
+
     // Tests for Backstage passes
     @Test
     void testBackstagePassesQualityIncreasesBy2When10DaysOrLess() {
